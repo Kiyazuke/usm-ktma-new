@@ -640,7 +640,7 @@
                     success: function(response) {
                         $('#cabang').empty().append('<option value="">-- Pilih Cabang --</option>');
                         $.each(response, function(index, item) {
-                            $('#cabang').append('<option value="' + item.id + '">' + item.nama_cabang + '</option>');
+                            $('#cabang').append('<option value="' + item.nama_cabang + '">' + item.nama_cabang + '</option>');
                         });
                     }
                 });
@@ -655,7 +655,7 @@
               dataType: "json",
               success: function (data) {
                   $.each(data, function (index, provinsi) {
-                      $("#provinsi").append(`<option value="${provinsi.id}">${provinsi.name}</option>`);
+                      $("#provinsi").append(`<option value="${provinsi.name}" json-id="${provinsi.id}">${provinsi.name}</option>`);
                   });
               },
               error: function () {
@@ -665,7 +665,7 @@
 
           // Event saat provinsi dipilih
           $("#provinsi").change(function () {
-              let provinsiId = $(this).val();
+              let provinsiId = $(this).children(":selected").attr("json-id");
               $("#kota").html('<option value="">-- Pilih Kota/Kabupaten --</option>'); // Reset kota
               $("#kecamatan").html('<option value="">-- Pilih Kecamatan --</option>'); // Reset kecamatan
 
@@ -676,7 +676,7 @@
                       dataType: "json",
                       success: function (data) {
                           $.each(data, function (index, kota) {
-                              $("#kota").append(`<option value="${kota.id}">${kota.name}</option>`);
+                              $("#kota").append(`<option value="${kota.name}" json-id="${kota.id}">${kota.name}</option>`);
                           });
                       },
                       error: function () {
@@ -688,7 +688,7 @@
 
           // Event saat kota/kabupaten dipilih
           $("#kota").change(function () {
-              let kotaId = $(this).val();
+              let kotaId = $(this).children(":selected").attr("json-id");
               $("#kecamatan").html('<option value="">-- Pilih Kecamatan --</option>'); // Reset kecamatan
 
               if (kotaId) {
@@ -698,7 +698,7 @@
                       dataType: "json",
                       success: function (data) {
                           $.each(data, function (index, kecamatan) {
-                              $("#kecamatan").append(`<option value="${kecamatan.id}">${kecamatan.name}</option>`);
+                              $("#kecamatan").append(`<option value="${kecamatan.name}" json-id="${kecamatan.id}">${kecamatan.name}</option>`);
                           });
                       },
                       error: function () {
@@ -710,7 +710,7 @@
 
           // Event saat kecamatan dipilih
           $("#kecamatan").change(function () {
-              let kecamatanId = $(this).val();
+              let kecamatanId = $(this).children(":selected").attr("json-id");
               $("#kelurahan").html('<option value="">-- Pilih Kelurahan/Desa --</option>'); // Reset kelurahan
 
               if (kecamatanId) {
@@ -720,7 +720,7 @@
                       dataType: "json",
                       success: function (data) {
                           $.each(data, function (index, kelurahan) {
-                              $("#kelurahan").append(`<option value="${kelurahan.id}">${kelurahan.name}</option>`);
+                              $("#kelurahan").append(`<option value="${kelurahan.name}" json-id="${kelurahan.id}">${kelurahan.name}</option>`);
                           });
                       },
                       error: function () {

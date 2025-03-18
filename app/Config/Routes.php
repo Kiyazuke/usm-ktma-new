@@ -6,6 +6,8 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 $routes->get('/', 'Home::index');
+$routes->post('/ktam/cek-status', 'Home::cekStatus');
+$routes->get('/ktam/detail/(:segment)', 'Home::detail/$1');
 
 $routes->get('/formKtam', 'FormKtam::index');
 $routes->get('/formKtam/store', 'FormKtam::store');

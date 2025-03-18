@@ -51,17 +51,17 @@
             <div class="divider-text divider-vertical"></div>
             <div class="flex-1">
               <h5 class="mb-3">Cek Status Pendaftaran</h5>
-              <form>
-                <div class="form-group mb-3">
+              <form action="<?= base_url('/ktam/cek-status') ?>" method="post">
+                <!-- <div class="form-group mb-3">
                   <label>Email: </label>
                   <input type="email" name="email" class="form-control" placeholder="Email Terdaftar" required="">
-                </div>
+                </div> -->
                 <div class="form-group mb-3">
                   <label>NIK: </label>
-                  <input type="text" name="nik" class="form-control" placeholder="NIK Terdaftar" required="">
+                  <input type="text" name="nik" id="nik" class="form-control" placeholder="NIK Terdaftar" required="">
                 </div>
                 <div class="mg-t-20">
-                  <button type="button" class="btn btn-primary btn-block">Cari</button>
+                  <button type="submit" class="btn btn-primary btn-block">Cari</button>
                 </div>
               </form>
             </div>
